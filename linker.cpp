@@ -4,7 +4,7 @@
  * @Autor: Tabbit
  * @Date: 2021-09-26 22:13:45
  * @LastEditors: Tabbit
- * @LastEditTime: 2021-09-29 00:52:34
+ * @LastEditTime: 2021-09-29 02:26:42
  */
  // #include <stdio.h>
 #include <string>
@@ -131,6 +131,9 @@ void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
     *wordArr = createWordArr(line);
     char* wordArrCp = createWordArr(line);
     *word = strtok(wordArrCp, sep);
+    for(int i=0; i<line.length(); i++) {
+        cout << line[i] << endl;
+    }
     *lineNum += 1;
     *offset = 0;
     while (!*word) {
@@ -314,9 +317,9 @@ void Pass1() {
         }
         // check warning Rule5 
         for (int i = 0; i < defCount; i++) {
-            if (tempSymNum[i] > instCount) {
+            if (tempSymNum[i] > instCount-1) {
+                printf("Warning: Module %d: %s too big %d (max=%d) assume zero relative\n", moduleCnt, tempSymName[i].c_str(), tempSymNum[i], instCount-1);
                 tempSymNum[i] = 0;
-                printf("Warning: Module %d: %s too big %d (max=%d) assume zero relative\n", moduleCnt, tempSymName[i].c_str(), tempSymNum[i], instCount);
             }
             createSymbol(tempSymName[i], tempSymNum[i], moduleBaseAddress, moduleCnt);
         }
@@ -420,7 +423,7 @@ void Pass2() {
             }
             else if (addressMode == 'R') {
                 if (operandNum > instCount) {
-                    string substitute = to_string(moduleBaseAddress);
+                    string substitute = to_string(opcode*1000+moduleBaseAddress);
                     cout << addrStr.c_str() << ": " << substitute.c_str() << " " << __printerror(1) << endl;
                 }
                 else {
@@ -457,6 +460,7 @@ void Pass2() {
         moduleCnt++;
         moduleBaseAddress += instCount;
         // print use state Warning rule7
+        
         for(int i=0; i<useCount; i++) {
             if(useState[i]==0) {
                 printf("Warning: Module %d: %s appeared in the uselist but was not actually used\n", moduleCnt, symNameL[i].c_str());
@@ -483,6 +487,7 @@ void printSymbolTable() {
 }
 
 void printDefWarning() {
+    cout << endl;
     for(int i=0; i<symbolNum; i++) {
         if(symbolTable[i].used==0) {
             // rule 4
