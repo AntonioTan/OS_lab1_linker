@@ -4,7 +4,7 @@
  * @Autor: Tabbit
  * @Date: 2021-09-26 22:13:45
  * @LastEditors: Tabbit
- * @LastEditTime: 2021-09-28 16:44:00
+ * @LastEditTime: 2021-09-28 21:28:09
  */
  // #include <stdio.h>
 #include <string>
@@ -32,7 +32,7 @@ struct Symbol {
 }symbolTable[1000];
 char* createWordArr(string line);
 void getNewLine(char** wordArr, char** word, int* lineNum, int* offset);
-int getOffSet(char* word, string line, int offset);
+void getOffSet(char** word, char** wordArr, int* offset);
 int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset);
 string readSymbol(char** wordArr, char** word, int* lineNum, int* lineOffset);
 class ParseError {
@@ -81,9 +81,7 @@ void getToken() {
         for (; word; word = strtok(NULL, " \t\n")) {
 
             // find the first place that match
-            cout << "Length: " << ((string)word).length() << endl;
             offSet = strcspn(line.substr(offSet, len).c_str(), word);
-            cout << word << "   lineNum:" << lineNum << "    offSet:" << offSet + 1 << endl;
             offSet += ((string)word).length();
         }
         len += line.length();
@@ -113,8 +111,10 @@ void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
         return;
     }
     *wordArr = createWordArr(line);
-    *word = strtok(*wordArr, sep);
+    char* wordArrCp = createWordArr(line);
+    *word = strtok(wordArrCp, sep);
     *lineNum += 1;
+    *offset = 0;
     while (!*word) {
         if (!f.eof()) {
             getline(f, line);
@@ -123,10 +123,21 @@ void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
             return;
         }
         *wordArr = createWordArr(line);
-        *word = strtok(*wordArr, sep);
+        cout << "After: " << *wordArr << endl;
+        char* wordArrCp = createWordArr(line);
+        *word = strtok(wordArrCp, sep);
+        *offset = 0;
         *lineNum += 1;
     }
-    *offset = getOffSet(*word, line, *offset);
+    getOffSet(word, wordArr, offset);
+}
+
+void getOffSet(char** word, char** wordArr, int* offset) {
+    string line = (string)(*wordArr);
+    int gap = strcspn(line.substr(*offset, line.length()-*offset).c_str(), *word);
+    *offset += gap;
+    // cout << "offset: " << *offset << "  len: " << line.length()-*offset << "    line: " << *wordArr <<endl;
+    // cout << "line: " << line.substr(*offset, line.length()-*offset) << "    word: " << *word << "    offset: "<< *offset << endl;
 }
 
 int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset) {
@@ -139,7 +150,7 @@ int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset) {
             return -1;
         }
     }
-    cout << "word:" << *word << endl;
+    getOffSet(word, wordArr, lineOffset);
     string wordCp = (string)*word;
     for (int i = 0; i < wordCp.length(); i++) {
         if (!isdigit(wordCp[i])) {
@@ -165,6 +176,7 @@ string readSymbol(char** wordArr, char** word, int* lineNum, int* lineOffset) {
             throw ParseError(1, *lineNum, *lineOffset);
         }
     }
+    getOffSet(word, wordArr, lineOffset);
     string name = (string)*word;
     for (int i = 0; i < name.length(); i++) {
         if (!isalnum(name[i])) {
@@ -184,6 +196,7 @@ char readIEAR(char** wordArr, char** word, int* lineNum, int* lineOffset) {
             throw ParseError(2, *lineNum, *lineOffset);
         }
     }
+    getOffSet(word, wordArr, lineOffset);
     string iearChar = (string)*word;
     if(iearChar!="I"&&iearChar != "E"&&iearChar!="A"&&iearChar!="R") {
         throw ParseError(2, *lineNum, *lineOffset);
@@ -191,12 +204,9 @@ char readIEAR(char** wordArr, char** word, int* lineNum, int* lineOffset) {
     return iearChar[0];
 }
 
-int getOffSet(char* word, string line, int offset) {
-    return strcspn(line.substr(offset, line.length()).c_str(), word);
-}
 
 char* createWordArr(string line) {
-    char* wordArr = new char[sizeof line + 1];
+    char* wordArr = new char[line.length() + 1];
     strcpy(wordArr, line.c_str());
     return wordArr;
 }
@@ -206,10 +216,18 @@ void createSymbol(string name, int num, int baseAddr) {
     symbolTable[symbolNum++] = Symbol(name, 0, num + baseAddr);
 }
 
+string convertCharPointer(char* target) {
+    string rst = "";
+    for(int i=0; *(target+i); i++) {
+        rst += *(target+i);
+    }
+    return rst;
+}
+
 void Pass1() {
     // initialize variable part
     string line; // string line for the next line read from ifstream
-    int lineNum = 1; // line number 
+    int lineNum = 0; // line number 
     int offSet = 0; // line offset of each line
     char* word; // the current word
     char* wordArr; // the char* for current line
@@ -244,7 +262,9 @@ void Pass1() {
         }
         for(int i=0; i<instCount; i++) {
             char addressMode = readIEAR(&wordArr, &word, &lineNum, &offSet);
+            cout << offSet << endl;
             int operand = readInt(&wordArr, &word, &lineNum, &offSet);
+            cout << offSet << endl;
             if(operand == -1) {
                 throw ParseError(0, lineNum, offSet);
             }
