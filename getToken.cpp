@@ -4,7 +4,7 @@
  * @Autor: Tabbit
  * @Date: 2021-09-26 22:13:45
  * @LastEditors: Tabbit
- * @LastEditTime: 2021-09-28 21:28:09
+ * @LastEditTime: 2021-09-28 22:29:46
  */
  // #include <stdio.h>
 #include <string>
@@ -35,6 +35,29 @@ void getNewLine(char** wordArr, char** word, int* lineNum, int* offset);
 void getOffSet(char** word, char** wordArr, int* offset);
 int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset);
 string readSymbol(char** wordArr, char** word, int* lineNum, int* lineOffset);
+void Pass1();
+void Pass2();
+
+class Error {
+    public:
+        Error(int eCode) {
+            errcode = eCode;
+        }
+        Error(int eCode, string sym) {
+            errcode = eCode;
+            symbol = sym;
+        }
+        int getErrcode() {
+            return errcode;
+        }
+        string getSym() {
+            return symbol;
+        }
+    private:
+        int errcode;
+        string symbol;
+};
+
 class ParseError {
     public:
         ParseError(int eCode, int lNum, int lOffset) {
@@ -57,6 +80,7 @@ class ParseError {
         int lineNum;
         int lineOffset;
 };
+
 void getToken() {
     cout << "Reading file...." << endl;
     string line;
@@ -87,6 +111,18 @@ void getToken() {
         len += line.length();
         lineNum++;
     }
+}
+
+void __printerror(int errcode, string def="") {
+    string errstr[7] = {
+        "Error: Absolute address exceeds machine size; zero used",
+        "Error: Relative address exceeds module size; zero used",
+        "Error: External address exceeds length of uselist; treated as immediate",
+        "Error:"+def+" is not defined; zero used",
+        "Error: This variable is multiple times defined; first value used",
+        "Error: Illegal immediate value; treated as 9999" "Error: Illegal opcode; treated as 9999"
+    };
+    printf("%s\n", errstr[errcode].c_str());
 }
 
 void __parseerror(int errcode, int lineNum, int lineOffSet) {
@@ -123,7 +159,6 @@ void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
             return;
         }
         *wordArr = createWordArr(line);
-        cout << "After: " << *wordArr << endl;
         char* wordArrCp = createWordArr(line);
         *word = strtok(wordArrCp, sep);
         *offset = 0;
@@ -240,6 +275,75 @@ void Pass1() {
             break;
         }
         // Now we have def Count, we need to get symbol
+        int tempSymNum[defCount]; 
+        string tempSymName[defCount];
+        for (int symCnt = 0; symCnt < defCount; symCnt++) {
+            string symbolName = readSymbol(&wordArr, &word, &lineNum, &offSet);
+            int symbolNum = readInt(&wordArr, &word, &lineNum, &offSet);
+            if (symbolNum == -1) {
+                throw ParseError(0, lineNum, offSet);
+            }
+            tempSymName[symCnt] = symbolName;
+            tempSymNum[symCnt] = symbolNum;
+            createSymbol(symbolName, symbolNum, moduleBaseAddress);
+        }
+        // Now we move to useCount part
+        int useCount = readInt(&wordArr, &word, &lineNum, &offSet);
+        if (useCount == -1) {
+            throw ParseError(0, lineNum, offSet);
+        }
+        for(int i=0; i<useCount; i++) {
+            string symbolName = readSymbol(&wordArr, &word, &lineNum, &offSet);
+        }
+        int instCount = readInt(&wordArr, &word, &lineNum, &offSet);
+        if (instCount == -1) {
+            throw ParseError(0, lineNum, offSet);
+        }
+        for(int i=0; i<instCount; i++) {
+            char addressMode = readIEAR(&wordArr, &word, &lineNum, &offSet);
+            int operand = readInt(&wordArr, &word, &lineNum, &offSet);
+            if(operand == -1) {
+                throw ParseError(0, lineNum, offSet);
+            }
+        }
+        // check warning Rule5 
+        for(int i=0; i<defCount; i++) {
+            if(tempSymNum[i]>instCount) {
+                printf("Warning: Module %d: %s too big %d (max=%d) assume zero relative\n", moduleCnt, tempSymName[i].c_str(), tempSymNum[i], instCount);
+            }
+        }
+        moduleCnt++;
+        moduleBaseAddress += instCount;
+    }
+    // if symbolCnt is still 0, meaning no definition is included should throw an error and abort the process
+    if (symbolNum == 0) {
+        throw ParseError(0, lineNum, offSet);
+    }
+    // print out the symbol table
+    cout << "Symbol Table" << endl;
+    for(int i=0; i<symbolNum; i++) {
+        cout << symbolTable[i].name << "=" << symbolTable[i].address << endl;
+    }
+
+}
+
+
+void Pass2() {
+    // initialize variable part
+    string line; // string line for the next line read from ifstream
+    int lineNum = 0; // line number 
+    int offSet = 0; // line offset of each line
+    char* word; // the current word
+    char* wordArr; // the char* for current line
+    while (!f.eof()) {
+        // initialize
+        moduleArr[moduleCnt] = moduleBaseAddress;
+        int defCount = readInt(&wordArr, &word, &lineNum, &offSet);
+        // if no defCount left, end the scan 
+        if (defCount == -1) {
+            break;
+        }
+        // Now we have def Count, we need to get symbol
         for (int symCnt = 0; symCnt < defCount; symCnt++) {
             string symbolName = readSymbol(&wordArr, &word, &lineNum, &offSet);
             int symbolNum = readInt(&wordArr, &word, &lineNum, &offSet);
@@ -262,9 +366,7 @@ void Pass1() {
         }
         for(int i=0; i<instCount; i++) {
             char addressMode = readIEAR(&wordArr, &word, &lineNum, &offSet);
-            cout << offSet << endl;
             int operand = readInt(&wordArr, &word, &lineNum, &offSet);
-            cout << offSet << endl;
             if(operand == -1) {
                 throw ParseError(0, lineNum, offSet);
             }
@@ -276,14 +378,16 @@ void Pass1() {
     if (symbolNum == 0) {
         throw ParseError(0, lineNum, offSet);
     }
+
+}
+
+void printSymbolTable() {
     // print out the symbol table
     cout << "Symbol Table" << endl;
     for(int i=0; i<symbolNum; i++) {
         cout << symbolTable[i].name << "=" << symbolTable[i].address << endl;
     }
-
 }
-
 
 int main(int argc, char* argv[]) {
     try {
@@ -292,5 +396,20 @@ int main(int argc, char* argv[]) {
         Pass1();
     } catch (ParseError parseError) {
         __parseerror(parseError.getErrcode(), parseError.getLineNum(), parseError.getLineOffset());
+        return 0;
     }
+    printSymbolTable();
+    try {
+        f.open("input");
+        Pass2();
+    } catch (Error error) {
+        int errcode = error.getErrcode();
+        if(errcode == 3) {
+            __printerror(errcode, error.getSym());
+        } else {
+            __printerror(errcode);
+        }
+        return 0;
+    }
+    return 0;
 }
