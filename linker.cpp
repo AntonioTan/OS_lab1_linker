@@ -4,7 +4,7 @@
  * @Autor: Tabbit
  * @Date: 2021-09-26 22:13:45
  * @LastEditors: Tabbit
- * @LastEditTime: 2021-09-29 14:54:44
+ * @LastEditTime: 2021-09-29 15:49:51
  */
  // #include <stdio.h>
 #include <string>
@@ -36,6 +36,7 @@ void getNewLine(char** wordArr, char** word, int* lineNum, int* offset);
 void getOffSet(char** word, char** wordArr, int* offset);
 int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset);
 string readSymbol(char** wordArr, char** word, int* lineNum, int* lineOffset);
+int checkSymbolExist(string name);
 void Pass1();
 void Pass2();
 
@@ -95,14 +96,14 @@ void getToken() {
 }
 
 string __printerror(int errcode, string def = "") {
-    string err3 = "Error:" + def + " is not defined; zero used";
+    string err3 = "Error: " + def + " is not defined; zero used";
     string errstr[7] = {
         "Error: Absolute address exceeds machine size; zero used",
         "Error: Relative address exceeds module size; zero used",
         "Error: External address exceeds length of uselist; treated as immediate",
         err3,
         "Error: This variable is multiple times defined; first value used",
-        "Error: Illegal immediate value; treated as 9999" "Error: Illegal opcode; treated as 9999",
+        "Error: Illegal immediate value; treated as 9999",
         "Error: Illegal opcode; treated as 9999"
     };
     return errstr[errcode];
@@ -162,20 +163,23 @@ void __parseerror(int errcode, int lineNum, int lineOffSet) {
 //     } while (*offset == 0);
 // }
 void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
-    if(*word) *offset += ((string)*word).length();
+    if (*word) *offset += ((string)*word).length();
     *word = strtok(NULL, sep);
     int addLine = 0;
+    int lastLineNum = *lineNum;
     int lastOffset = *offset;
     while (!*word) {
         string line;
         if (!f.eof()) {
             getline(f, line);
-            lastOffset = *offset;
             *offset = 1;
             *lineNum += 1;
         }
         else {
             *lineNum -= 1;
+            if (*lineNum == lastLineNum) {
+                *offset = lastOffset;
+            }
             return;
         }
         *wordArr = createWordArr(line);
@@ -187,7 +191,7 @@ void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
 
 void getOffSet(char** word, char** wordArr, int* offset) {
     string line = (string)(*wordArr);
-    int gap = strcspn(line.substr(*offset-1, line.length() - *offset + 1).c_str(), *word);
+    int gap = strcspn(line.substr(*offset - 1, line.length() - *offset + 1).c_str(), *word);
     *offset += gap;
     // cout << "offset: " << *offset << "  len: " << line.length()-*offset << "    line: " << *wordArr <<endl;
     // cout << "line: " << line.substr(*offset, line.length()-*offset) << "    word: " << *word << "    offset: "<< *offset << endl;
@@ -195,7 +199,7 @@ void getOffSet(char** word, char** wordArr, int* offset) {
 
 int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset) {
     getNewLine(wordArr, word, lineNum, lineOffset);
-    if(!*word) {
+    if (!*word) {
         return -1;
     }
     string wordCp = (string)*word;
@@ -214,11 +218,11 @@ int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset) {
 
 string readSymbol(char** wordArr, char** word, int* lineNum, int* lineOffset) {
     getNewLine(wordArr, word, lineNum, lineOffset);
-    if(!*word) {
+    if (!*word) {
         throw ParseError(1, *lineNum, *lineOffset);
     }
     string name = (string)*word;
-    if(!isalpha(name[0])) {
+    if (!isalpha(name[0])) {
         throw ParseError(1, *lineNum, *lineOffset);
     }
     for (int i = 1; i < name.length(); i++) {
@@ -231,7 +235,7 @@ string readSymbol(char** wordArr, char** word, int* lineNum, int* lineOffset) {
 
 char readIEAR(char** wordArr, char** word, int* lineNum, int* lineOffset) {
     getNewLine(wordArr, word, lineNum, lineOffset);
-    if(!*word) {
+    if (!*word) {
         throw ParseError(2, *lineNum, *lineOffset);
     }
     string iearChar = (string)*word;
@@ -259,13 +263,7 @@ int checkSymbolExist(string name) {
 
 void createSymbol(string name, int num, int baseAddr, int module) {
     Symbol a = Symbol(name, 0, num + baseAddr, 0, module);
-    int pastSymbolIndex = checkSymbolExist(name);
-    if (pastSymbolIndex == -1) {
-        symbolTable[symbolNum++] = a;
-    }
-    else {
-        symbolTable[pastSymbolIndex].multi = 1;
-    }
+    symbolTable[symbolNum++] = a;
 }
 
 string convertCharPointer(char* target) {
@@ -322,7 +320,7 @@ void Pass1() {
             string symbolName = readSymbol(&wordArr, &word, &lineNum, &offSet);
         }
         int instCount = readInt(&wordArr, &word, &lineNum, &offSet);
-        if (moduleBaseAddress+instCount > 512) {
+        if (moduleBaseAddress + instCount > 512) {
             throw ParseError(6, lineNum, offSet);
         }
         if (instCount == -1) {
@@ -337,11 +335,16 @@ void Pass1() {
         }
         // check warning Rule5 
         for (int i = 0; i < defCount; i++) {
-            if (tempSymNum[i] > instCount - 1) {
-                printf("Warning: Module %d: %s too big %d (max=%d) assume zero relative\n", moduleCnt, tempSymName[i].c_str(), tempSymNum[i], instCount - 1);
-                tempSymNum[i] = 0;
+            int pastSymbolIndex = checkSymbolExist(tempSymName[i]);
+            if (pastSymbolIndex == -1) {
+                if (tempSymNum[i] > instCount - 1) {
+                    printf("Warning: Module %d: %s too big %d (max=%d) assume zero relative\n", moduleCnt, tempSymName[i].c_str(), tempSymNum[i], instCount - 1);
+                    tempSymNum[i] = 0;
+                }
+                createSymbol(tempSymName[i], tempSymNum[i], moduleBaseAddress, moduleCnt);
+            } else {
+                symbolTable[pastSymbolIndex].multi = 1;
             }
-            createSymbol(tempSymName[i], tempSymNum[i], moduleBaseAddress, moduleCnt);
         }
         moduleCnt++;
         moduleBaseAddress += instCount;
@@ -468,7 +471,7 @@ void Pass2() {
             else {
                 if (opcode > 9) {
                     operand = 9999;
-                    cout << addrStr << ": " << to_string(operand) << " " << __printerror(6) << endl;  // Rule 11
+                    cout << addrStr << ": " << to_string(operand) << " " << __printerror(5) << endl;  // Rule 11
                 }
                 else {
                     cout << addrStr << ": " << opeAddr << endl;
@@ -476,15 +479,14 @@ void Pass2() {
             }
 
         }
-        moduleCnt++;
-        moduleBaseAddress += instCount;
         // print use state Warning rule7
-
         for (int i = 0; i < useCount; i++) {
             if (useState[i] == 0) {
                 printf("Warning: Module %d: %s appeared in the uselist but was not actually used\n", moduleCnt, symNameL[i].c_str());
             }
         }
+        moduleCnt++;
+        moduleBaseAddress += instCount;
     }
 
 }
@@ -518,7 +520,7 @@ void printDefWarning() {
 
 int main(int argc, char* argv[]) {
     try {
-        string fileAddr = "lab1_assign/" + (string)argv[1];
+        string fileAddr = (string)argv[1];
         f.open(fileAddr);
         Pass1();
         f.close();
