@@ -1,10 +1,10 @@
 /*
- * @Description: getToken test unit
+ * @Description: linker for OS lab1
  * @Version: 1.0
  * @Autor: Tabbit
  * @Date: 2021-09-26 22:13:45
  * @LastEditors: Tabbit
- * @LastEditTime: 2021-09-30 10:50:57
+ * @LastEditTime: 2021-09-30 12:16:47
  */
  // #include <stdio.h>
 #include <string>
@@ -14,7 +14,6 @@
 #include <string.h>
 using namespace std;
 const char* sep = " \t\n";  // seperator for the strtok
-// use a int array to store module base address
 ifstream f;
 int symbolNum = 0;
 struct Symbol {
@@ -34,12 +33,18 @@ struct Symbol {
         r = relativeNum;
     }
 }symbolTable[1000];
+void __parseerror(int errcode, int lineNum, int lineOffSet);
 char* createWordArr(string line);
 void getNewLine(char** wordArr, char** word, int* lineNum, int* offset);
 void getOffSet(char** word, char** wordArr, int* offset);
 int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset);
 string readSymbol(char** wordArr, char** word, int* lineNum, int* lineOffset);
+char readIEAR(char** wordArr, char** word, int* lineNum, int* lineOffset);
+char* createWordArr(string line);
 int checkSymbolExist(string name);
+string convertCharPointer(char* target);
+void printSymbolTable();
+void printDefWarning();
 void Pass1();
 void Pass2();
 
@@ -125,50 +130,13 @@ void __parseerror(int errcode, int lineNum, int lineOffSet) {
     printf("Parse Error line %d offset %d: %s\n", lineNum, lineOffSet, errstr[errcode].c_str());
 }
 
-// void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
-//     string line;
-//     int startIndex;
-//     do {
-//         if (*offset == 0 || startIndex==line.length()) {
-//             if (!f.eof()) {
-//                 getline(f, line);
-//                 cout << line.length() << endl;
-//                 *wordArr = createWordArr(line);
-//                 startIndex = 0;
-//             }
-//             else {
-//                 return;
-//             }
-//         }
-//         else {
-//             line = (string)(*wordArr);
-//             startIndex = *offset - 1 + ((string)*word).length();
-//         }
-//         for (int i = startIndex; i < line.length(); i++) {
-//             if (line[i] == ' ' || line[i] == '\t') {
-//                 continue;
-//             }
-//             else {
-//                 *offset = i + 1;
-//                 int endIndex = i;
-//                 for (endIndex = i; endIndex < line.length(); endIndex++) {
-//                     if (line[endIndex] == ' ' || line[endIndex] == '\t') {
-//                         endIndex--;
-//                     }
-//                 }
-//                 int len = endIndex - i + 1;
-//                 *word = createWordArr(line.substr(i, len));
-//                 break;
-//             }
-//         }
-//         *lineNum += 1;
-
-//     } while (*offset == 0);
-// }
 void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
+    // add the length of last word to offset if last word exists
     if (*word) *offset += ((string)*word).length();
+    // if line still exists keep reading the next word
     *word = strtok(NULL, sep);
     int addLine = 0;
+    // keep last lineNum and last offset
     int lastLineNum = *lineNum;
     int lastOffset = *offset;
     while (!*word) {
@@ -181,10 +149,12 @@ void getNewLine(char** wordArr, char** word, int* lineNum, int* offset) {
         else {
             *lineNum -= 1;
             if (*lineNum == lastLineNum) {
+                // lineNum doesn't change means the next line is null then replace the offset with last one
                 *offset = lastOffset;
             }
             return;
         }
+        // strtok will mess the original char* so use the copy one
         *wordArr = createWordArr(line);
         char* wordArrCp = createWordArr(line);
         *word = strtok(wordArrCp, sep);
@@ -196,35 +166,24 @@ void getOffSet(char** word, char** wordArr, int* offset) {
     string line = (string)(*wordArr);
     int gap = strcspn(line.substr(*offset - 1, line.length() - *offset + 1).c_str(), *word);
     *offset += gap;
-    // cout << "offset: " << *offset << "  len: " << line.length()-*offset << "    line: " << *wordArr <<endl;
-    // cout << "line: " << line.substr(*offset, line.length()-*offset) << "    word: " << *word << "    offset: "<< *offset << endl;
 }
 
 int readInt(char** wordArr, char** word, int* lineNum, int* lineOffset) {
     getNewLine(wordArr, word, lineNum, lineOffset);
+    // if next int doesn't exist it can be in two cases
+    // case 1 the file is empty no more defCount to read
+    // case 2 the next int doesn't exist we need to throw an error
     if (!*word) {
         return -10000;
     }
     string wordCp = (string)*word;
-    bool negative = false;
-    if (wordCp[0] == '-') {
-        negative = true;
-    }
     for (int i = 0; i < wordCp.length(); i++) {
-        if (negative && i == 0) continue;
         if (!isdigit(wordCp[i])) {
             throw ParseError(0, *lineNum, *lineOffset);
         }
     }
-    int rst;
-    if (negative) {
-        rst = -stoi(wordCp.substr(1, wordCp.length() - 1));
-    }
-    else {
-        rst = stoi(wordCp);
-    }
+    int rst = stoi(wordCp);
     if (rst >= pow(2, 30)) {
-        // if __parseerror is reached the return statement is unreachable since the process will be aborted
         throw ParseError(0, *lineNum, *lineOffset);
     }
     return rst;
@@ -259,13 +218,14 @@ char readIEAR(char** wordArr, char** word, int* lineNum, int* lineOffset) {
     return iearChar[0];
 }
 
-
+// copy line to a brand new char*
 char* createWordArr(string line) {
     char* wordArr = new char[line.length() + 1];
     strcpy(wordArr, line.c_str());
     return wordArr;
 }
 
+// check whether the symbol exists before if it exists return the its index in symbolTable otherwise return -1
 int checkSymbolExist(string name) {
     for (int i = 0; i < symbolNum; i++) {
         if (symbolTable[i].name == name) {
@@ -280,6 +240,7 @@ void createSymbol(string name, int num, int baseAddr, int module) {
     symbolTable[symbolNum++] = a;
 }
 
+// read string of a char*
 string convertCharPointer(char* target) {
     string rst = "";
     for (int i = 0; *(target + i); i++) {
@@ -358,6 +319,7 @@ void Pass1() {
                 createSymbol(tempSymName[i], tempSymNum[i], moduleBaseAddress, moduleCnt);
             }
             else {
+                // even the symbol exists before, still need to check rule 5 according to new moduleBaseAddress
                 if (symbolTable[pastSymbolIndex].address - moduleBaseAddress > instCount - 1) {
                     printf("Warning: Module %d: %s too big %d (max=%d) assume zero relative\n", moduleCnt, symbolTable[pastSymbolIndex].name.c_str(), symbolTable[pastSymbolIndex].address-moduleBaseAddress, instCount-1);
                     tempSymNum[i] = 0;
@@ -374,6 +336,8 @@ void Pass1() {
     }
 
 }
+
+// return string with a length given by bitMax if its original length less than bitMax use 0 to make up
 string getAddr(int addr, int bitMax) {
     string rst = "";
     int bit = 0;
@@ -390,6 +354,7 @@ string getAddr(int addr, int bitMax) {
     return rst;
 }
 
+// get global address of a symbol after pass1 and make its used equal to 1 if found one
 int getGlobalAddr(string name) {
     for (int i = 0; i < symbolNum; i++) {
         string symName = symbolTable[i].name;
@@ -458,6 +423,7 @@ void Pass2() {
                 }
             }
             else if (addressMode == 'R') {
+                // Rule 9
                 if (operandNum > instCount) {
                     string substitute = getAddr(opcode * 1000 + moduleBaseAddress, 4);
                     cout << addrStr.c_str() << ": " << substitute.c_str() << " " << __printerror(1) << endl;
@@ -467,6 +433,7 @@ void Pass2() {
                 }
             }
             else if (addressMode == 'E') {
+                // Rule 6
                 if (operandNum > useCount - 1) {
                     cout << addrStr << ": " << opeAddr << " " << __printerror(2) << endl;
                     continue;
@@ -475,6 +442,7 @@ void Pass2() {
                 string symbol = symNameL[operandNum];
                 int globalAddr = getGlobalAddr(symbol);
                 if (globalAddr == -1) {
+                    // Rule 3
                     string substitute = getAddr(opcode * 1000, 4);
                     cout << addrStr << ": " << substitute.c_str() << " " << __printerror(3, symbol) << endl;
                 }
@@ -483,6 +451,7 @@ void Pass2() {
                 }
             }
             else {
+                // Rule 10
                 if (opcode > 9) {
                     operand = 9999;
                     cout << addrStr << ": " << to_string(operand) << " " << __printerror(5) << endl;  // Rule 11
@@ -525,7 +494,7 @@ void printDefWarning() {
     cout << endl;
     for (int i = 0; i < symbolNum; i++) {
         if (symbolTable[i].used == 0) {
-            // rule 4
+            // Rule 4
             printf("Warning: Module %d: %s was defined but never used\n", symbolTable[i].module, symbolTable[i].name.c_str());
         }
     }
