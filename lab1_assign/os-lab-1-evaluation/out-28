@@ -1,0 +1,693 @@
+Symbol Table
+b=221 Error: This variable is multiple times defined; first value used
+ttpd2cl9L0Ayo=34
+gxMycYB0uh2=294
+acFOQn=6
+rCrnCY=79
+xnb1jXx=218 Error: This variable is multiple times defined; first value used
+ay9nB2BHI=158
+mT=54
+jirFB=26
+qzWCpaunfSG=131
+xFx=159
+p1zFMoIl5=111
+pZgxBIWsx6Ei=136
+k3Fi0KdMuA43m=118
+r7aaFGv=374
+fKSeg8kaG=336 Error: This variable is multiple times defined; first value used
+aCHN1UGwNDqh=339
+d0aGB6MSoUPXezB=336
+p77D=359 Error: This variable is multiple times defined; first value used
+gPgpG=434
+zjXlC6XCYz4M=449 Error: This variable is multiple times defined; first value used
+ePcidH2rAEZ8Fzl=398
+lvghDuZZN=381
+z=406
+nfMgnDtkESgXUE=450
+pzvGDue4oms=420
+fGyYHCf=435
+u=416
+pBVEVNNbZ3nHmwm=396
+djUJk72=419
+swwk860qThNIVC=418
+hEiIkY9D1q=386
+tllp1K=472
+lEBhTbHTKFOSgHQG=473
+hbOMX2IdpUpMN=473
+tBPugv=473
+j3g8exkmLvXwkYo=472
+oudQ=472
+wRb=475
+x7pDT=474
+gh=474
+nqfJaDMPG=475
+w=475 Error: This variable is multiple times defined; first value used
+dG1nkx5mCg1amkd=475
+tEg=475
+f92oQgNUoUQksP=474
+shaxHNdqnfMbmEA=474
+o=483
+u0A=480
+fqL7uWWxv=492
+kvUUyH5hvDJ=498
+uUeQiy8fWdpP=509
+dJKs2=509
+l3V9uTZ=509
+kdDpzR8nQDPg7ov=509
+qT4XcQzHgCafXiR=509
+qMUgY9E7LE9=509
+lE=509
+r2MZ07=509
+mzI=509
+k6u0z8XGML8=509
+a25F9=509
+hYytY0k9YnjK=509
+sgmyrW8GP31NwGAI=509
+q=509
+zHT=509
+fo=509
+iVqlxt7jzt=511
+aWds1f=511
+bOgw=510
+sD64Q26=511
+r2t6MdRzTJz=511
+ph=511
+cFXd9NSO33oX4=511
+rHvg=511
+hYrXr6=510
+oLQc5E=510
+kI=510
+mBbgKvQSeYL=511
+
+Memory Map
+000: 4111
+001: 924
+002: 5079
+003: 3308
+004: 5054
+005: 4079
+006: 240
+007: 5006
+008: 1019
+009: 3136
+010: 9165
+011: 1064
+012: 336
+013: 3136
+014: 208
+015: 4507
+016: 3204
+017: 4194
+018: 4136
+019: 5241
+020: 2280
+021: 442
+022: 1270
+023: 269
+024: 4021
+025: 2416
+026: 1271
+027: 9211
+028: 4298
+029: 5079
+030: 9073
+031: 0079
+032: 4112
+033: 8076
+034: 6349
+035: 9082
+036: 213
+037: 3364
+038: 6184
+039: 7487
+040: 115
+041: 3000 Error: yERXOa is not defined; zero used
+042: 5191
+043: 1259
+044: 4175
+045: 0006
+046: 9215
+047: 3143
+048: 248
+049: 6102
+050: 7250
+051: 2020
+052: 0034
+053: 241
+054: 6295
+055: 1379
+056: 445
+057: 100
+058: 6433
+059: 9999 Error: Illegal immediate value; treated as 9999
+060: 1251
+061: 2223
+062: 7294
+063: 4273
+064: 519
+065: 6330
+066: 1079
+067: 6122
+068: 2261
+069: 169
+070: 4446
+071: 1000 Error: Relative address exceeds module size; zero used
+072: 3482
+073: 4077
+074: 3211
+075: 2494
+076: 2121
+077: 6336
+078: 0054
+079: 5316
+080: 1226
+081: 3054
+082: 4000 Error: yERXOa is not defined; zero used
+083: 3380
+084: 0 Error: Absolute address exceeds machine size; zero used
+085: 7287
+086: 2461
+087: 9079
+088: 285
+089: 7000 Error: fU is not defined; zero used
+090: 2136
+091: 4184
+092: 2294
+093: 8144
+094: 2256
+095: 8169
+096: 169
+097: 5369
+098: 211
+099: 2136
+100: 1000 Error: fU is not defined; zero used
+101: 1112
+102: 9409
+103: 3136
+104: 9246
+105: 7006
+106: 6294
+107: 9170
+108: 8419
+109: 8452
+110: 4415
+111: 7408
+112: 4311
+113: 2000 Error: yERXOa is not defined; zero used
+114: 218
+115: 1378
+116: 2264
+117: 2136
+118: 9999 Error: Illegal opcode; treated as 9999
+119: 5230
+120: 6218
+121: 2020
+122: 8124
+123: 6443
+124: 9000 Error: yERXOa is not defined; zero used
+125: 3409
+126: 7054
+127: 1108
+128: 4496
+129: 1047
+130: 6079
+131: 519
+132: 4127
+133: 3232
+134: 6154
+135: 8469
+136: 2263
+137: 9999 Error: Illegal immediate value; treated as 9999
+138: 0014
+139: 9437
+140: 9999 Error: Illegal immediate value; treated as 9999
+141: 1502
+142: 9391
+143: 2192
+144: 116
+145: 8054
+146: 846
+147: 6238
+148: 1256
+149: 7000 Error: yERXOa is not defined; zero used
+150: 9461
+151: 9136
+152: 5136
+153: 5453
+154: 9079
+155: 395
+156: 6232
+157: 4178
+158: 6144
+159: 1000 Error: yERXOa is not defined; zero used
+160: 0 Error: Absolute address exceeds machine size; zero used
+161: 2020
+162: 7136
+163: 8156
+164: 8233
+165: 4189
+166: 8283
+167: 615
+168: 5142
+169: 0 Error: Absolute address exceeds machine size; zero used
+170: 7006
+171: 9000 Error: fU is not defined; zero used
+172: 7127
+173: 8054
+174: 9999 Error: Illegal opcode; treated as 9999
+175: 2136
+176: 4312
+177: 9512
+178: 2382
+179: 7136
+180: 9999 Error: Illegal immediate value; treated as 9999
+181: 4452
+182: 6051
+183: 6253
+184: 188
+185: 4047
+186: 7366
+187: 6224
+188: 3034
+189: 4068
+190: 8079
+191: 4271
+192: 4204
+193: 4465
+194: 5054
+195: 4274
+196: 9999 Error: Illegal opcode; treated as 9999
+197: 136
+198: 9034
+199: 9999 Error: Illegal immediate value; treated as 9999
+200: 136
+201: 1103
+202: 8104
+203: 238
+204: 234
+205: 4167
+206: 239
+207: 479
+208: 2136
+209: 7184
+210: 6072
+211: 2136
+212: 5213
+213: 834
+214: 6348
+215: 5003
+216: 4000 Error: fU is not defined; zero used
+217: 0 Error: Absolute address exceeds machine size; zero used
+218: 3153
+219: 7339
+220: 8218
+221: 5486
+222: 5277
+223: 7054
+224: 8218
+225: 2073
+226: 355
+227: 6165
+228: 1305
+229: 5300
+230: 9999 Error: Illegal opcode; treated as 9999
+231: 6079
+232: 622
+233: 4240
+234: 4207
+235: 8213
+236: 194
+237: 9446
+238: 3195
+239: 1136
+240: 7035
+241: 2489
+242: 0065
+243: 3000 Error: fU is not defined; zero used
+244: 0079
+245: 3206
+246: 2159
+247: 218
+248: 6079
+249: 136
+250: 9999 Error: Illegal opcode; treated as 9999
+251: 183
+252: 8305
+253: 635
+254: 6126
+255: 2419
+256: 206
+257: 3425
+258: 7483
+259: 5217
+260: 5240
+261: 3314
+262: 9129
+263: 5219
+264: 400
+265: 5498
+266: 7002
+267: 4034
+268: 4162
+269: 5079
+270: 8322
+271: 994
+272: 2054
+273: 1464
+274: 7479
+275: 6152
+276: 3136
+277: 4286
+278: 0 Error: Absolute address exceeds machine size; zero used
+279: 5136
+280: 4170
+281: 3327
+282: 5380
+283: 8261
+284: 3138
+285: 2021 Error: External address exceeds length of uselist; treated as immediate
+286: 0 Error: Absolute address exceeds machine size; zero used
+287: 8262
+288: 2410
+289: 2364
+290: 5301
+291: 4263
+292: 2438
+293: 0006
+294: 2486
+295: 2144
+296: 2136
+297: 1034
+298: 3240
+299: 456
+300: 3390
+301: 5146
+302: 8184
+303: 8274
+304: 7204
+305: 8042
+306: 0 Error: yERXOa is not defined; zero used
+307: 189
+308: 1119
+309: 7163
+310: 5210
+311: 3265
+312: 9372
+313: 1111
+314: 1054
+315: 9160
+316: 468
+317: 1248
+318: 1345
+319: 7358
+320: 5379
+321: 7155
+322: 1131
+323: 4412
+324: 4340
+325: 356
+326: 4391
+327: 7398
+328: 9122
+329: 9999 Error: Illegal immediate value; treated as 9999
+330: 9392
+331: 3437
+332: 2131
+333: 185
+334: 9999 Error: Illegal immediate value; treated as 9999
+335: 4322
+336: 4406
+337: 7485
+338: 9410
+339: 0057
+340: 8336
+341: 5316
+342: 5340
+343: 475
+344: 7136
+345: 326
+346: 5118
+347: 7360
+348: 0 Error: Absolute address exceeds machine size; zero used
+349: 7312
+350: 9249
+351: 7118
+352: 118
+353: 5372
+354: 7367
+355: 1118
+356: 1315 Error: Relative address exceeds module size; zero used
+357: 6363
+358: 9999 Error: Illegal opcode; treated as 9999
+359: 352
+360: 2368
+361: 4129
+362: 5118
+363: 9139
+364: 647
+365: 5136
+366: 5189
+367: 5118
+368: 8333
+369: 4131
+370: 8216
+371: 1195
+372: 6341
+373: 9309
+374: 5118
+375: 544
+376: 1331
+377: 476
+378: 4377
+379: 5218
+380: 5113
+381: 7218
+382: 9218
+383: 2218
+384: 8451
+385: 9999 Error: Illegal immediate value; treated as 9999
+386: 9218
+387: 8255
+388: 137
+389: 1413
+390: 4218
+391: 218
+392: 5218
+393: 4173
+394: 0024
+395: 3414
+396: 7167
+397: 0 Error: Absolute address exceeds machine size; zero used
+398: 6218
+399: 388
+400: 0 Error: Absolute address exceeds machine size; zero used
+401: 3282
+402: 9432
+403: 3388
+404: 4117
+405: 6218
+406: 3396
+407: 0 Error: Absolute address exceeds machine size; zero used
+408: 7218
+409: 3218
+410: 5226
+411: 2239
+412: 192
+413: 9423
+414: 5196
+415: 667
+416: 6470
+417: 7242
+418: 1218
+419: 8384
+420: 218
+421: 247
+422: 1366
+423: 3263
+424: 9338
+425: 110
+426: 9999 Error: Illegal immediate value; treated as 9999
+427: 5421
+428: 4117
+429: 7267
+430: 7505
+431: 9290
+432: 7218
+433: 7306
+434: 9431
+435: 6218
+436: 8228
+437: 4382
+438: 4433
+439: 6235
+440: 7394
+441: 7124
+442: 4218
+443: 7461
+444: 3358
+445: 8218
+446: 1218
+447: 1482
+448: 5218
+449: 7455
+450: 5414
+451: 4244
+452: 218
+453: 218
+454: 8411
+455: 218
+456: 4218
+457: 9018 Error: External address exceeds length of uselist; treated as immediate
+458: 4115
+459: 3468
+460: 381
+461: 2396
+462: 317
+463: 3396
+464: 9999 Error: Illegal opcode; treated as 9999
+465: 6168
+466: 8341
+467: 2471
+468: 5450
+469: 6396
+470: 649
+471: 6284
+Warning: Module 4: fKSeg8kaG appeared in the uselist but was not actually used
+Warning: Module 4: eaiYvCXXpWxvOZlQ appeared in the uselist but was not actually used
+472: 2380
+473: 5159
+Warning: Module 5: c68iOlm8qDW0I appeared in the uselist but was not actually used
+Warning: Module 5: hEiIkY9D1q appeared in the uselist but was not actually used
+Warning: Module 5: k3Fi0KdMuA43m appeared in the uselist but was not actually used
+Warning: Module 5: ttpd2cl9L0Ayo appeared in the uselist but was not actually used
+Warning: Module 5: fKSeg8kaG appeared in the uselist but was not actually used
+Warning: Module 5: djUJk72 appeared in the uselist but was not actually used
+Warning: Module 5: tBPugv appeared in the uselist but was not actually used
+Warning: Module 5: pBVEVNNbZ3nHmwm appeared in the uselist but was not actually used
+474: 3336
+475: 4461
+476: 161
+477: 7485
+478: 2353
+479: 0085
+480: 5490
+481: 8486
+482: 7473
+483: 7158
+484: 9457
+485: 2434
+486: 486
+Warning: Module 7: gxMycYB0uh2 appeared in the uselist but was not actually used
+Warning: Module 7: z appeared in the uselist but was not actually used
+Warning: Module 7: qzWCpaunfSG appeared in the uselist but was not actually used
+Warning: Module 7: oudQ appeared in the uselist but was not actually used
+Warning: Module 7: fGyYHCf appeared in the uselist but was not actually used
+Warning: Module 7: wRb appeared in the uselist but was not actually used
+Warning: Module 7: o appeared in the uselist but was not actually used
+Warning: Module 7: jirFB appeared in the uselist but was not actually used
+Warning: Module 7: oudQ appeared in the uselist but was not actually used
+Warning: Module 7: j3g8exkmLvXwkYo appeared in the uselist but was not actually used
+Warning: Module 7: f92oQgNUoUQksP appeared in the uselist but was not actually used
+487: 6218
+488: 7500
+489: 7483
+490: 9326
+491: 3506
+492: 6392
+493: 499
+494: 4483
+495: 1376
+496: 4483
+497: 1496
+498: 411
+499: 8416
+500: 6335
+501: 2497
+502: 6359
+503: 1416
+504: 6218
+505: 345
+506: 6506
+507: 3505
+508: 3495
+Warning: Module 8: aCHN1UGwNDqh appeared in the uselist but was not actually used
+Warning: Module 8: ePcidH2rAEZ8Fzl appeared in the uselist but was not actually used
+509: 5509
+510: 9029 Error: External address exceeds length of uselist; treated as immediate
+511: 3235
+Warning: Module 10: tllp1K appeared in the uselist but was not actually used
+Warning: Module 10: k3Fi0KdMuA43m appeared in the uselist but was not actually used
+Warning: Module 10: p1zFMoIl5 appeared in the uselist but was not actually used
+Warning: Module 10: z appeared in the uselist but was not actually used
+Warning: Module 10: nfMgnDtkESgXUE appeared in the uselist but was not actually used
+Warning: Module 10: fo appeared in the uselist but was not actually used
+Warning: Module 10: f92oQgNUoUQksP appeared in the uselist but was not actually used
+Warning: Module 10: l3V9uTZ appeared in the uselist but was not actually used
+Warning: Module 10: fo appeared in the uselist but was not actually used
+Warning: Module 10: uRV appeared in the uselist but was not actually used
+Warning: Module 10: w appeared in the uselist but was not actually used
+Warning: Module 10: q appeared in the uselist but was not actually used
+Warning: Module 10: ePcidH2rAEZ8Fzl appeared in the uselist but was not actually used
+Warning: Module 10: r7aaFGv appeared in the uselist but was not actually used
+Warning: Module 10: wRb appeared in the uselist but was not actually used
+Warning: Module 10: sgmyrW8GP31NwGAI appeared in the uselist but was not actually used
+
+Warning: Module 1: b was defined but never used
+Warning: Module 1: ay9nB2BHI was defined but never used
+Warning: Module 1: jirFB was defined but never used
+Warning: Module 2: r7aaFGv was defined but never used
+Warning: Module 2: fKSeg8kaG was defined but never used
+Warning: Module 2: aCHN1UGwNDqh was defined but never used
+Warning: Module 3: zjXlC6XCYz4M was defined but never used
+Warning: Module 3: ePcidH2rAEZ8Fzl was defined but never used
+Warning: Module 3: z was defined but never used
+Warning: Module 3: pzvGDue4oms was defined but never used
+Warning: Module 3: fGyYHCf was defined but never used
+Warning: Module 3: djUJk72 was defined but never used
+Warning: Module 3: swwk860qThNIVC was defined but never used
+Warning: Module 3: hEiIkY9D1q was defined but never used
+Warning: Module 5: tllp1K was defined but never used
+Warning: Module 5: lEBhTbHTKFOSgHQG was defined but never used
+Warning: Module 5: hbOMX2IdpUpMN was defined but never used
+Warning: Module 5: j3g8exkmLvXwkYo was defined but never used
+Warning: Module 5: oudQ was defined but never used
+Warning: Module 6: wRb was defined but never used
+Warning: Module 6: x7pDT was defined but never used
+Warning: Module 6: gh was defined but never used
+Warning: Module 6: nqfJaDMPG was defined but never used
+Warning: Module 6: w was defined but never used
+Warning: Module 6: dG1nkx5mCg1amkd was defined but never used
+Warning: Module 6: tEg was defined but never used
+Warning: Module 6: f92oQgNUoUQksP was defined but never used
+Warning: Module 6: shaxHNdqnfMbmEA was defined but never used
+Warning: Module 7: u0A was defined but never used
+Warning: Module 8: fqL7uWWxv was defined but never used
+Warning: Module 8: kvUUyH5hvDJ was defined but never used
+Warning: Module 9: uUeQiy8fWdpP was defined but never used
+Warning: Module 9: dJKs2 was defined but never used
+Warning: Module 9: l3V9uTZ was defined but never used
+Warning: Module 9: kdDpzR8nQDPg7ov was defined but never used
+Warning: Module 9: qT4XcQzHgCafXiR was defined but never used
+Warning: Module 9: qMUgY9E7LE9 was defined but never used
+Warning: Module 9: lE was defined but never used
+Warning: Module 9: r2MZ07 was defined but never used
+Warning: Module 9: mzI was defined but never used
+Warning: Module 9: k6u0z8XGML8 was defined but never used
+Warning: Module 9: a25F9 was defined but never used
+Warning: Module 9: hYytY0k9YnjK was defined but never used
+Warning: Module 9: sgmyrW8GP31NwGAI was defined but never used
+Warning: Module 9: q was defined but never used
+Warning: Module 9: zHT was defined but never used
+Warning: Module 9: fo was defined but never used
+Warning: Module 10: iVqlxt7jzt was defined but never used
+Warning: Module 10: aWds1f was defined but never used
+Warning: Module 10: bOgw was defined but never used
+Warning: Module 10: sD64Q26 was defined but never used
+Warning: Module 10: r2t6MdRzTJz was defined but never used
+Warning: Module 10: ph was defined but never used
+Warning: Module 10: cFXd9NSO33oX4 was defined but never used
+Warning: Module 10: rHvg was defined but never used
+Warning: Module 10: hYrXr6 was defined but never used
+Warning: Module 10: oLQc5E was defined but never used
+Warning: Module 10: kI was defined but never used
+Warning: Module 10: mBbgKvQSeYL was defined but never used

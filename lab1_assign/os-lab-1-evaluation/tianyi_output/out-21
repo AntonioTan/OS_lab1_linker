@@ -1,0 +1,101 @@
+Symbol Table
+g=42
+v=20
+fbK8=8
+fcxZoqUEN=33
+z4PfaeB=20 Error: This variable is multiple times defined; first value used
+yi3pI80KoaFunNbn=13
+gipmztX4GxXQlgy=50
+foAj3eehPezI=44
+aXA=49
+asW2hFFbHGpE=47
+r=2
+bfwohe9fFRFv4x=36
+yDznPcl0NKiZ6a2t=33
+k=31
+
+Memory Map
+000: 4051
+001: 7049
+002: 4053
+003: 6206
+004: 0196
+005: 2458
+006: 9261
+007: 2322
+008: 3060
+009: 3057
+010: 0002
+011: 4000
+012: 0217
+013: 7044
+014: 9012
+015: 0000 Error: Absolute address exceeds machine size; zero used
+016: 2305
+017: 9027
+018: 0013
+019: 8446
+020: 9350
+021: 0155
+022: 6002
+023: 9024 Error: External address exceeds length of uselist; treated as immediate
+024: 0139
+025: 9065
+026: 8070
+027: 7422
+028: 4023
+029: 0000 Error: Absolute address exceeds machine size; zero used
+030: 3335
+031: 1022
+032: 2044
+033: 9999 Error: Illegal opcode; treated as 9999
+034: 5326
+035: 4174
+036: 9057
+037: 3356
+038: 2036
+039: 5040
+040: 9049
+041: 0000 Error: Absolute address exceeds machine size; zero used
+042: 7218
+043: 6008
+044: 0020
+045: 0013
+046: 2453
+047: 7163
+048: 6044
+049: 6034
+050: 4461
+051: 6151
+052: 0129
+053: 2270
+054: 1025
+055: 4348
+056: 1007
+057: 4506
+058: 4013
+059: 3459
+060: 0021
+061: 4037
+062: 8044
+063: 9049
+064: 0750
+065: 0033
+066: 4137
+067: 1059
+068: 2033
+069: 2452
+070: 2273
+071: 8044
+072: 7133
+073: 7056
+074: 5496
+075: 0009
+076: 8049
+
+Warning: Module 1: g was defined but never used
+Warning: Module 1: v was defined but never used
+Warning: Module 1: gipmztX4GxXQlgy was defined but never used
+Warning: Module 1: asW2hFFbHGpE was defined but never used
+Warning: Module 1: yDznPcl0NKiZ6a2t was defined but never used
+Warning: Module 1: k was defined but never used

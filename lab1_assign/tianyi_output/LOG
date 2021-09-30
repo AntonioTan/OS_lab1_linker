@@ -1,0 +1,8 @@
+################### input-12##################
+###    Warning Diff:    .....
+###    Code/Error Diff: .....
+1c1
+< Parse Error line 3 offset 8: ADDR_EXPECTED
+---
+> Parse Error line 1 offset 1: NUM_EXPECTED
+

@@ -1,0 +1,469 @@
+Symbol Table
+m2BfjNNRkxwtpubG=214
+anvODaZxGyCN=329 Error: This variable is multiple times defined; first value used
+g1BFw6YLdpj=335
+w1Yph5TgXhQcG=8
+qtn1cOGIN=208
+pC2OMWc7B5Jj=313
+zxCMNfCM5PibcbDM=157
+mqV4A=188
+ptcfXoblJ1EOV8S=242
+kDe1=57
+s9JqKl4xZvwJfp=252
+uhcsm4=295
+cIRRLx8jzFT0=302
+jOA=351
+jtKGb63rm2p7lT=400
+k6P8Xu=381
+hijG4w=400
+fFYluOO6FKo=403
+dIVHoDR=372
+bmUD8bDMoa9=382
+sd1=397
+hfqYE=406
+r=382
+irl=400
+tZ2=401
+sFtkeS5vhZp9=385
+vhiH7atSIS=403
+a01GDL3a7O73WB=396
+
+Memory Map
+000: 9311
+001: 4093
+002: 2496
+003: 7261
+004: 9205
+005: 1054
+006: 2329
+007: 9329
+008: 2229
+009: 0046
+010: 1329
+011: 6222
+012: 9414
+013: 6329
+014: 5149
+015: 0000 Error: Absolute address exceeds machine size; zero used
+016: 2114
+017: 5337
+018: 7493
+019: 1262
+020: 2252
+021: 6008 Error: External address exceeds length of uselist; treated as immediate
+022: 0000 Error: Absolute address exceeds machine size; zero used
+023: 0478
+024: 6207
+025: 6447
+026: 6323
+027: 9999 Error: Illegal immediate value; treated as 9999
+028: 3329
+029: 0329
+030: 8105
+031: 3131
+032: 1083
+033: 1423
+034: 8329
+035: 5000 Error: Relative address exceeds module size; zero used
+036: 4329
+037: 8475
+038: 6195
+039: 2465
+040: 5355
+041: 3457
+042: 5329
+043: 3167
+044: 3439
+045: 0143
+046: 4161
+047: 6017
+048: 2329
+049: 5057
+050: 2393
+051: 9329
+052: 9999 Error: Illegal immediate value; treated as 9999
+053: 9190
+054: 0016
+055: 2329
+056: 0255
+057: 4329
+058: 9999 Error: Illegal opcode; treated as 9999
+059: 8341
+060: 7079
+061: 5101
+062: 1254
+063: 3329
+064: 3018 Error: External address exceeds length of uselist; treated as immediate
+065: 4315
+066: 0329
+067: 4294
+068: 7270
+069: 1074
+070: 1511
+071: 1322
+072: 7314
+073: 8512
+074: 7329
+075: 9445
+076: 6243
+077: 6329
+078: 2125
+079: 8187
+080: 9047
+081: 8074
+082: 1228
+083: 4398
+084: 3161
+085: 9999 Error: Illegal immediate value; treated as 9999
+086: 0357
+087: 1173
+088: 1303
+089: 1255
+090: 2329
+091: 2329
+092: 0222
+093: 6133
+094: 3348
+095: 0167
+096: 7117
+097: 3157
+098: 9329
+099: 7024 Error: External address exceeds length of uselist; treated as immediate
+100: 0398
+101: 7194
+102: 9329
+103: 5333
+104: 0123
+105: 3329
+106: 9999 Error: Illegal immediate value; treated as 9999
+107: 3329
+108: 4289
+109: 0378
+110: 0316
+111: 8000 Error: Relative address exceeds module size; zero used
+112: 0018 Error: External address exceeds length of uselist; treated as immediate
+113: 3086
+114: 9329
+115: 1392
+116: 6208
+117: 2263
+118: 6329
+119: 5329
+120: 1405
+121: 4374
+122: 0038
+123: 4321
+124: 0329
+125: 0152
+126: 2194
+127: 1329
+128: 0000 Error: Absolute address exceeds machine size; zero used
+129: 4458
+130: 0210
+131: 7346
+132: 2329
+133: 1027
+134: 9000
+135: 5222
+136: 0377
+137: 1329
+138: 4237
+139: 0000 Error: Absolute address exceeds machine size; zero used
+140: 7329
+141: 0329
+142: 4308
+143: 1246
+144: 9157
+145: 7274
+146: 4157
+147: 6329
+148: 0410
+149: 3132
+150: 6329
+151: 0451
+152: 1329
+153: 8000 Error: Absolute address exceeds machine size; zero used
+154: 6310
+155: 6327
+156: 1358
+157: 6102
+158: 9332
+159: 2329
+160: 0812
+161: 2320
+162: 2000 Error: Relative address exceeds module size; zero used
+163: 1329
+164: 0329
+165: 8218
+166: 0281
+167: 4306
+168: 3329
+169: 5463
+170: 1189
+171: 0019
+172: 0137
+173: 5300
+174: 3365
+175: 5412
+176: 6329
+177: 8329
+178: 6344
+179: 7020
+180: 2346
+181: 4399
+182: 3480
+183: 6354
+184: 6295
+185: 9278
+186: 8362
+187: 8013
+188: 3329
+189: 4355
+190: 3443
+191: 9999 Error: Illegal immediate value; treated as 9999
+192: 1098
+193: 7067
+194: 8239
+195: 2335
+196: 6126
+197: 3159
+198: 4405
+199: 0017 Error: External address exceeds length of uselist; treated as immediate
+200: 9419
+201: 8329
+202: 7148
+203: 7329
+204: 0329
+205: 6367
+206: 5342
+207: 9129
+208: 3427
+209: 0378
+210: 5228
+211: 8198
+212: 9999 Error: Illegal opcode; treated as 9999
+213: 9999 Error: Illegal opcode; treated as 9999
+214: 2329
+215: 0461
+216: 1287
+217: 1153
+218: 3399
+219: 0742
+220: 9110
+221: 1266
+222: 0404
+223: 7329
+224: 7502
+225: 4108
+226: 5329
+227: 8338
+228: 0471
+229: 5329
+230: 8329
+231: 9120
+232: 2176
+233: 0329
+234: 8297
+235: 0453
+236: 7297
+237: 0078
+238: 6329
+239: 4329
+240: 3344
+241: 8376
+242: 9121
+243: 6216
+244: 5329
+245: 9999 Error: Illegal immediate value; treated as 9999
+246: 6160
+247: 2329
+248: 0295
+249: 3016
+250: 6358
+251: 5316
+252: 1302
+253: 9295
+254: 2069
+255: 9421
+256: 6329
+257: 0058
+258: 0064
+259: 7329
+260: 8329
+261: 1104
+262: 0000 Error: Absolute address exceeds machine size; zero used
+263: 1329
+264: 1329
+265: 0329
+266: 6217
+267: 8340
+268: 3116
+269: 7114
+270: 9197
+271: 5003
+272: 0879
+273: 2158
+274: 3468
+275: 0022
+276: 0427
+277: 8011 Error: External address exceeds length of uselist; treated as immediate
+278: 1274
+279: 7329
+280: 8138
+281: 0329
+282: 0008
+283: 0329
+284: 7013 Error: External address exceeds length of uselist; treated as immediate
+285: 9061
+286: 0000 Error: Relative address exceeds module size; zero used
+287: 9237
+288: 0329
+289: 9400
+290: 6271
+291: 8233
+292: 0000 Error: Absolute address exceeds machine size; zero used
+293: 0457
+294: 4314
+295: 2188
+296: 7329
+297: 8305
+298: 5176
+299: 0344
+300: 8256
+301: 9181
+302: 5329
+303: 3317
+304: 4329
+305: 0329
+306: 1329
+307: 9244
+308: 9434
+309: 9381
+310: 2163
+311: 1482
+312: 5165
+313: 1286
+314: 0006 Error: External address exceeds length of uselist; treated as immediate
+315: 5329
+316: 8252
+317: 7320
+318: 0239
+319: 9036
+320: 5163
+321: 0400
+322: 8080
+323: 4169
+324: 0749
+325: 5329
+326: 0329
+327: 9329
+328: 9110
+329: 2149
+330: 0322
+331: 1329
+332: 8441
+333: 4132
+334: 6476
+335: 6329
+336: 8275
+337: 2329
+338: 0329
+339: 1329
+340: 0028
+341: 5148
+342: 2126
+343: 1303
+344: 0207
+345: 5329
+346: 5130
+347: 3232
+348: 5229
+349: 0252
+350: 1254
+351: 8362
+352: 3228
+353: 7329
+354: 3329
+355: 1013
+356: 3182
+357: 0000 Error: Absolute address exceeds machine size; zero used
+358: 4297
+359: 0329
+360: 8205
+361: 4329
+362: 6131
+363: 6328
+364: 8395
+365: 0938
+366: 0194
+367: 6138
+368: 4290
+369: 0040
+370: 6393
+371: 0478
+372: 8374
+373: 9407
+374: 0000 Error: Absolute address exceeds machine size; zero used
+375: 1398
+376: 8222
+377: 3318
+378: 0407
+379: 0463
+380: 3214
+381: 7302
+382: 9999 Error: Illegal opcode; treated as 9999
+383: 6382
+384: 0733
+385: 0208
+386: 6299
+387: 0044
+388: 4304
+389: 6240
+390: 0983
+391: 3394
+392: 7208
+393: 0377
+394: 1377
+395: 9385
+396: 3113
+397: 7408
+398: 7382
+399: 1521
+400: 0217
+401: 0000 Error: Absolute address exceeds machine size; zero used
+402: 0056
+403: 4301
+404: 6231
+405: 2494
+406: 8259
+407: 7382
+408: 5112
+Warning: Module 2: kDe1 appeared in the uselist but was not actually used
+Warning: Module 2: ptcfXoblJ1EOV8S appeared in the uselist but was not actually used
+Warning: Module 2: bmUD8bDMoa9 appeared in the uselist but was not actually used
+Warning: Module 2: tZ2 appeared in the uselist but was not actually used
+Warning: Module 2: dIVHoDR appeared in the uselist but was not actually used
+
+Warning: Module 1: g1BFw6YLdpj was defined but never used
+Warning: Module 1: w1Yph5TgXhQcG was defined but never used
+Warning: Module 1: pC2OMWc7B5Jj was defined but never used
+Warning: Module 1: zxCMNfCM5PibcbDM was defined but never used
+Warning: Module 1: mqV4A was defined but never used
+Warning: Module 1: ptcfXoblJ1EOV8S was defined but never used
+Warning: Module 1: kDe1 was defined but never used
+Warning: Module 1: s9JqKl4xZvwJfp was defined but never used
+Warning: Module 1: uhcsm4 was defined but never used
+Warning: Module 1: jOA was defined but never used
+Warning: Module 2: jtKGb63rm2p7lT was defined but never used
+Warning: Module 2: k6P8Xu was defined but never used
+Warning: Module 2: hijG4w was defined but never used
+Warning: Module 2: fFYluOO6FKo was defined but never used
+Warning: Module 2: dIVHoDR was defined but never used
+Warning: Module 2: bmUD8bDMoa9 was defined but never used
+Warning: Module 2: sd1 was defined but never used
+Warning: Module 2: hfqYE was defined but never used
+Warning: Module 2: irl was defined but never used
+Warning: Module 2: tZ2 was defined but never used
+Warning: Module 2: sFtkeS5vhZp9 was defined but never used
+Warning: Module 2: vhiH7atSIS was defined but never used
+Warning: Module 2: a01GDL3a7O73WB was defined but never used

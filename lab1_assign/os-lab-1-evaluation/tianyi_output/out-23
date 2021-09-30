@@ -1,0 +1,538 @@
+Symbol Table
+hLfDtqL8=1
+aNna1s=80
+ufiZX=11 Error: This variable is multiple times defined; first value used
+ktbQ3HwY=38
+g4LEzKj0vbba=41
+olxIfgIve=17
+eWBU1lNc=13
+rWuF6UphqNxf2=77
+gPouEOTvxC=53
+x6=107
+z6d7N0J3Xo=57
+p9cc9mBgySAK73=70
+fnosMH1I79hrKP0U=312
+rmFxGqoO6AQ=292
+uHh9p=245
+bmRoc=181
+lIDCzeed=337
+nVki=355
+aqZo0f4s=398
+e0sLYUqI=451
+e3fSGgaRAR=451
+wZtoCvv51=368
+ba=455
+izJ4A65fNJFT2=468
+iiKE9lyW=399
+dmR7xGy4vLVbOO=349
+hWaAu6D=407
+maFRI1hLeXD1oOn=359
+
+Memory Map
+000: 9310
+001: 0144
+002: 8017
+003: 8340
+004: 9999 Error: Illegal immediate value; treated as 9999
+005: 0299
+006: 4070
+007: 1125
+008: 1058
+009: 5107
+010: 3041
+011: 3091
+012: 7106
+013: 9062
+014: 0117
+015: 9282
+016: 4405
+017: 0017
+018: 9260
+019: 5017
+020: 5254
+021: 0413
+022: 7174
+023: 8011
+024: 0093
+025: 0041
+026: 7013
+027: 7470
+028: 0106
+029: 1070
+030: 0097
+031: 5070
+032: 8327
+033: 1028
+034: 3016
+035: 1334
+036: 8107
+037: 2102
+038: 2131
+039: 1099
+040: 5229
+041: 0070
+042: 5400
+043: 8047
+044: 9107
+045: 8011
+046: 5228
+047: 3070
+048: 5464
+049: 3216
+050: 0579
+051: 6013
+052: 4051
+053: 5108
+054: 1107
+055: 3227
+056: 5051
+057: 7070
+058: 0067
+059: 1422
+060: 3107
+061: 7445
+062: 0041
+063: 9399
+064: 1330
+065: 0128
+066: 5013
+067: 9212
+068: 9002
+069: 9426
+070: 7041
+071: 1358
+072: 0195
+073: 2041
+074: 5013
+075: 4064
+076: 2000 Error: Absolute address exceeds machine size; zero used
+077: 8313
+078: 1373
+079: 9999 Error: Illegal immediate value; treated as 9999
+080: 3073
+081: 0033
+082: 0121
+083: 0000 Error: Relative address exceeds module size; zero used
+084: 2181
+085: 5213
+086: 3445
+087: 5352
+088: 0490
+089: 9079
+090: 6179
+091: 7041
+092: 4083
+093: 2078
+094: 4304
+095: 4004
+096: 8138
+097: 1287
+098: 6321
+099: 0000 Error: Absolute address exceeds machine size; zero used
+100: 9054
+101: 5099
+102: 1358
+103: 0017
+104: 0549
+105: 8091
+106: 2000 Error: Relative address exceeds module size; zero used
+107: 8055
+108: 2017
+109: 0020
+110: 0942
+111: 9025 Error: External address exceeds length of uselist; treated as immediate
+112: 4190
+113: 3126
+114: 5299
+115: 1022 Error: External address exceeds length of uselist; treated as immediate
+116: 9509
+117: 1256
+118: 1153
+119: 7179
+120: 8291
+121: 4496
+122: 7007 Error: External address exceeds length of uselist; treated as immediate
+123: 6022 Error: External address exceeds length of uselist; treated as immediate
+124: 4029 Error: External address exceeds length of uselist; treated as immediate
+125: 4016 Error: External address exceeds length of uselist; treated as immediate
+126: 3452
+127: 8303
+128: 6143
+129: 5167
+130: 6234
+131: 5204
+132: 8452
+133: 3143
+134: 6006 Error: External address exceeds length of uselist; treated as immediate
+135: 8292
+136: 0004 Error: External address exceeds length of uselist; treated as immediate
+137: 2404
+138: 0340
+139: 3150
+140: 7247
+141: 0242
+142: 4208
+143: 5207
+144: 3380
+145: 0946
+146: 6306
+147: 3006 Error: External address exceeds length of uselist; treated as immediate
+148: 9027 Error: External address exceeds length of uselist; treated as immediate
+149: 0538
+150: 1021 Error: External address exceeds length of uselist; treated as immediate
+151: 3497
+152: 5017 Error: External address exceeds length of uselist; treated as immediate
+153: 3225
+154: 0122
+155: 9194
+156: 0286
+157: 0419
+158: 1312
+159: 2258
+160: 5026 Error: External address exceeds length of uselist; treated as immediate
+161: 1229
+162: 5283
+163: 6490
+164: 0024
+165: 1007 Error: External address exceeds length of uselist; treated as immediate
+166: 6388
+167: 1510
+168: 3212
+169: 8004 Error: External address exceeds length of uselist; treated as immediate
+170: 9428
+171: 3130
+172: 9214
+173: 8028 Error: External address exceeds length of uselist; treated as immediate
+174: 0023 Error: External address exceeds length of uselist; treated as immediate
+175: 3443
+176: 5214
+177: 7230
+178: 1301
+179: 7317
+180: 2114
+181: 8001 Error: External address exceeds length of uselist; treated as immediate
+182: 0091
+183: 8427
+184: 7110 Error: Relative address exceeds module size; zero used
+185: 8196
+186: 8008 Error: External address exceeds length of uselist; treated as immediate
+187: 2024 Error: External address exceeds length of uselist; treated as immediate
+188: 6005 Error: External address exceeds length of uselist; treated as immediate
+189: 0231
+190: 0211
+191: 2011 Error: External address exceeds length of uselist; treated as immediate
+192: 4416
+193: 0082
+194: 9999 Error: Illegal opcode; treated as 9999
+195: 7262
+196: 3446
+197: 0961
+198: 7394
+199: 5002 Error: External address exceeds length of uselist; treated as immediate
+200: 9158
+201: 5303
+202: 5268
+203: 0313
+204: 3003 Error: External address exceeds length of uselist; treated as immediate
+205: 5260
+206: 2447
+207: 4006 Error: External address exceeds length of uselist; treated as immediate
+208: 1139
+209: 5016 Error: External address exceeds length of uselist; treated as immediate
+210: 5247
+211: 5493
+212: 0422
+213: 7014 Error: External address exceeds length of uselist; treated as immediate
+214: 8120
+215: 0331
+216: 0115
+217: 4313
+218: 7311
+219: 5137
+220: 7327
+221: 0402
+222: 2012 Error: External address exceeds length of uselist; treated as immediate
+223: 0257
+224: 5021 Error: External address exceeds length of uselist; treated as immediate
+225: 0932
+226: 3122
+227: 0273
+228: 6475
+229: 1013 Error: External address exceeds length of uselist; treated as immediate
+230: 9510
+231: 1121
+232: 0429
+233: 2269
+234: 7009 Error: External address exceeds length of uselist; treated as immediate
+235: 0161
+236: 7290
+237: 5124
+238: 2110 Error: Relative address exceeds module size; zero used
+239: 2489
+240: 6016 Error: External address exceeds length of uselist; treated as immediate
+241: 3263
+242: 6170
+243: 6306
+244: 5233
+245: 9290
+246: 0021 Error: External address exceeds length of uselist; treated as immediate
+247: 9999 Error: Illegal opcode; treated as 9999
+248: 6021 Error: External address exceeds length of uselist; treated as immediate
+249: 2006 Error: External address exceeds length of uselist; treated as immediate
+250: 1168
+251: 9999 Error: Illegal opcode; treated as 9999
+252: 4196
+253: 5283
+254: 5264
+255: 6453
+256: 5363
+257: 0122
+258: 9297
+259: 0000 Error: Absolute address exceeds machine size; zero used
+260: 6455
+261: 8248
+262: 9221
+263: 0020 Error: External address exceeds length of uselist; treated as immediate
+264: 9999 Error: Illegal immediate value; treated as 9999
+265: 9261
+266: 3011 Error: External address exceeds length of uselist; treated as immediate
+267: 0000 Error: Absolute address exceeds machine size; zero used
+268: 0052
+269: 3229
+270: 6110 Error: Relative address exceeds module size; zero used
+271: 8178
+272: 7439
+273: 0515
+274: 8011 Error: External address exceeds length of uselist; treated as immediate
+275: 7020 Error: External address exceeds length of uselist; treated as immediate
+276: 2162
+277: 0000 Error: Absolute address exceeds machine size; zero used
+278: 5114
+279: 1237
+280: 0005 Error: External address exceeds length of uselist; treated as immediate
+281: 2257
+282: 0003 Error: External address exceeds length of uselist; treated as immediate
+283: 0650
+284: 8279
+285: 5169
+286: 1204
+287: 0133
+288: 9354
+289: 3114
+290: 8417
+291: 8291
+292: 2143
+293: 4151
+294: 0482
+295: 5001 Error: External address exceeds length of uselist; treated as immediate
+296: 6367
+297: 0552
+298: 5429
+299: 0197
+300: 3238
+301: 3117
+302: 3235
+303: 1468
+304: 1026 Error: External address exceeds length of uselist; treated as immediate
+305: 8014 Error: External address exceeds length of uselist; treated as immediate
+306: 7288
+307: 6025 Error: External address exceeds length of uselist; treated as immediate
+308: 0226
+309: 6197
+310: 0192
+311: 4026 Error: External address exceeds length of uselist; treated as immediate
+312: 7180
+313: 6432
+314: 2243
+315: 6004 Error: External address exceeds length of uselist; treated as immediate
+316: 9999 Error: Illegal immediate value; treated as 9999
+317: 1273
+318: 4134
+319: 2009 Error: External address exceeds length of uselist; treated as immediate
+320: 4255
+321: 2017
+322: 3385
+323: 5385
+324: 0000 Error: Absolute address exceeds machine size; zero used
+325: 0268
+326: 0351
+327: 0043
+328: 8385
+329: 8471
+330: 7346
+331: 6354
+332: 3455
+333: 0087
+334: 7329
+335: 8392
+336: 8080
+337: 9345
+338: 3426
+339: 2464
+340: 6330
+341: 5474
+342: 7414
+343: 1217
+344: 9282
+345: 6479
+346: 0849
+347: 1349
+348: 8053
+349: 0000 Error: Absolute address exceeds machine size; zero used
+350: 9053
+351: 2292
+352: 2292
+353: 9394
+354: 5425
+355: 1415
+356: 7304
+357: 5451
+358: 6161
+359: 5080
+360: 4103
+361: 8143
+362: 2355
+363: 4080
+364: 0420
+365: 0349
+366: 8115
+367: 0239
+368: 4188
+369: 8430
+370: 8438
+371: 3459
+372: 3439
+373: 9455
+374: 6398
+375: 6165
+376: 0330
+377: 8349
+378: 8142
+379: 0349
+380: 6000 Error: Absolute address exceeds machine size; zero used
+381: 0077
+382: 1321 Error: Relative address exceeds module size; zero used
+383: 9053
+384: 1278
+385: 7349
+386: 4001
+387: 9120
+388: 5474
+389: 3453
+390: 7428
+391: 6323
+392: 1264
+393: 5422
+394: 3473
+395: 5266
+396: 9999 Error: Illegal immediate value; treated as 9999
+397: 7122
+398: 6257
+399: 6451
+400: 7374
+401: 5000 Error: uCa24YBgf6c is not defined; zero used
+402: 0017
+403: 2000 Error: uCa24YBgf6c is not defined; zero used
+404: 5310
+405: 6454
+406: 0438
+407: 6386
+408: 7508
+409: 0228
+410: 0000 Error: Absolute address exceeds machine size; zero used
+411: 6416
+412: 0000 Error: Absolute address exceeds machine size; zero used
+413: 5451
+414: 0477
+415: 3388
+416: 5001
+417: 2465
+418: 8455
+419: 0429
+420: 6455
+421: 5473
+422: 7331
+423: 6001
+424: 2430
+425: 9241
+426: 4133
+427: 5198
+428: 1053
+429: 9999 Error: Illegal immediate value; treated as 9999
+430: 0318
+431: 2492
+432: 5403
+433: 8377
+434: 9999 Error: Illegal immediate value; treated as 9999
+435: 5362
+436: 7485
+437: 1470
+438: 3486
+439: 0380
+440: 7080
+441: 8422
+442: 4446
+443: 3213
+444: 9455
+445: 5241
+446: 5483
+447: 0220
+448: 6001
+449: 9391
+450: 4314
+451: 3196
+452: 4358
+453: 8491
+454: 2340
+455: 0338
+456: 2101
+457: 9999 Error: Illegal immediate value; treated as 9999
+458: 4327
+459: 4053
+460: 8390
+461: 0430
+462: 5000 Error: uCa24YBgf6c is not defined; zero used
+463: 5422
+464: 1313
+465: 7377
+466: 3077
+467: 8017
+468: 0455
+469: 0451
+470: 0455
+471: 3273
+472: 8431
+473: 0048
+474: 9326
+475: 5221
+476: 6001
+477: 7321 Error: Relative address exceeds module size; zero used
+478: 0018 Error: External address exceeds length of uselist; treated as immediate
+479: 2423
+480: 5480
+481: 1387
+482: 9999 Error: Illegal opcode; treated as 9999
+483: 9363
+484: 0229
+485: 3342
+486: 5455
+487: 0364
+488: 3110
+489: 6294
+490: 3293
+491: 0426
+492: 9366
+
+Warning: Module 1: ktbQ3HwY was defined but never used
+Warning: Module 1: z6d7N0J3Xo was defined but never used
+Warning: Module 2: fnosMH1I79hrKP0U was defined but never used
+Warning: Module 2: uHh9p was defined but never used
+Warning: Module 2: bmRoc was defined but never used
+Warning: Module 3: lIDCzeed was defined but never used
+Warning: Module 3: aqZo0f4s was defined but never used
+Warning: Module 3: e0sLYUqI was defined but never used
+Warning: Module 3: wZtoCvv51 was defined but never used
+Warning: Module 3: izJ4A65fNJFT2 was defined but never used
+Warning: Module 3: iiKE9lyW was defined but never used
+Warning: Module 3: hWaAu6D was defined but never used
+Warning: Module 3: maFRI1hLeXD1oOn was defined but never used
